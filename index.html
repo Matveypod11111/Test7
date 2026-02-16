@@ -7,119 +7,127 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
-body{
-background:#050505;color:white;
-perspective:1200px;
-overflow-x:hidden;
-}
+body{background:#050505;color:white;overflow-x:hidden;}
 section{padding:20px;}
+header{
+text-align:center;
+font-size:38px;
+font-weight:900;
+margin:20px 0;
+background:linear-gradient(90deg,#00ffd5,#6aa9ff,#ff7adf);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 .card{
 background:#0d0d12;
 border-radius:22px;
 padding:20px;
 margin-bottom:20px;
 box-shadow:0 15px 40px rgba(0,0,0,0.6);
-transform-style:preserve-3d;
 transition:.4s;
-opacity:0;
-transform:translateY(80px) scale(.9);
-}
-.card.show{
-opacity:1;
-transform:translateY(0) scale(1);
-}
-.card:hover{
-transform:rotateX(4deg) rotateY(-4deg) scale(1.02);
-box-shadow:0 25px 80px rgba(0,255,255,0.15);
 }
 .title{text-align:center;font-size:26px;font-weight:800;margin:10px 0;}
 .blue{color:#25d9ff;}
-.row{display:flex;gap:10px;margin:10px 0;}
-.circle{
-width:28px;height:28px;border-radius:50%;
-background:#25d9ff;color:black;
-display:flex;align-items:center;justify-content:center;font-weight:800;
-}
-.ipbox{
-border:2px solid #25d9ff;border-radius:14px;
-padding:14px;text-align:center;font-size:18px;
-}
 .btn{
-margin-top:15px;width:100%;padding:14px;
+margin-top:15px;width:100%;padding:16px;
 background:#25d9ff;color:black;
-border:none;border-radius:14px;
-font-size:18px;font-weight:700;
+border:none;border-radius:16px;
+font-size:20px;font-weight:800;
 transition:.3s;
 }
-.btn:hover{
-transform:translateY(-3px) scale(1.03);
-box-shadow:0 10px 30px rgba(0,255,255,0.4);
+.btn:hover{transform:scale(1.05);}
+.ipbox{
+border:2px solid #25d9ff;border-radius:14px;
+padding:14px;text-align:center;font-size:20px;margin-top:10px;
 }
-header{
-text-align:center;
-font-size:38px;
-font-weight:900;
-margin:30px 0;
-background:linear-gradient(90deg,#00ffd5,#6aa9ff,#ff7adf);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:glow 3s infinite alternate;
+
+/* ACCORDION */
+.accordion{cursor:pointer;}
+.acc-title{font-size:20px;font-weight:800;}
+.acc-content{
+max-height:0;
+overflow:hidden;
+transition:.4s;
+line-height:1.6;
+color:#ddd;
+margin-top:10px;
 }
-@keyframes glow{
-from{text-shadow:0 0 10px #00ffd5;}
-to{text-shadow:0 0 30px #ff7adf;}
-}
-footer{text-align:center;padding:20px;color:#777;font-size:14px;}
-a{text-decoration:none;}
+.accordion.active .acc-content{max-height:500px;}
 </style>
 </head>
 <body>
 
+<!-- НАЗВА -->
 <header>LAMPSWORLD</header>
 
+<!-- ГОЛОВНИЙ БЛОК (з 3 картинки) -->
 <section>
 <div class="card">
+<div class="title">
+КРАЩИЙ <span class="blue">MINECRAFT</span><br>СЕРВЕР ДЛЯ ВИЖИВАННЯ
+</div>
+<div class="ipbox">lampsworld.aternos.me</div>
+<button class="btn" onclick="navigator.clipboard.writeText('lampsworld.aternos.me')">
+ПІДКЛЮЧИТИСЯ
+</button>
+</div>
+</section>
+
+<!-- ПРАВИЛА -->
+<section>
+<div class="title">ПРАВИЛА <span class="blue">СЕРВЕРА</span></div>
+
+<div class="card accordion">
+<div class="acc-title">1. Загальні положення</div>
+<div class="acc-content">
+1.1 Граючи на сервері, ви автоматично погоджуєтесь з правилами.<br>
+1.2 Адміністрація має право змінювати правила без попередження.<br>
+1.3 Незнання правил не звільняє від відповідальності.
+</div>
+</div>
+
+<div class="card accordion">
+<div class="acc-title">2. Ігровий процес</div>
+<div class="acc-content">
+2.1 Заборонено чіти, хак-клієнти, X-Ray.<br>
+2.2 Заборонено дюп і баги.<br>
+2.3 Заборонено гриферство і крадіжки.<br>
+2.4 Заборонено руйнування спавну.<br>
+2.5 Заборонено RDM.
+</div>
+</div>
+
+<div class="card accordion">
+<div class="acc-title">3. Спілкування в чаті</div>
+<div class="acc-content">
+3.1 Заборонено образи і токсичність.<br>
+3.2 Заборонено спам і рекламу.<br>
+3.3 Заборонено політику.<br>
+3.4 Заборонено поширення особистих даних.
+</div>
+</div>
+</section>
+
+<!-- ЯК ЗАЙТИ (перенесли вниз) -->
+<section>
 <div class="title">ЯК <span class="blue">ЗАЙТИ</span></div>
 
 <div class="card">
 <div class="title blue">Java Edition (ПК)</div>
-<div class="row"><div class="circle">1</div>Версія: <b>1.21.10</b></div>
-<div class="row"><div class="circle">2</div>IP: <b>lampsworld.aternos.me</b></div>
+Версія: <b>1.21.10</b><br>
+IP: <b>lampsworld.aternos.me</b><br>
+Натисніть "Готово"
 </div>
 
 <div class="card">
 <div class="title blue">Bedrock Edition</div>
-<div class="row"><div class="circle">1</div>IP: <b>lampsworld.aternos.me</b></div>
-<div class="row"><div class="circle">2</div>Порт: <b>58990</b></div>
-</div>
-
-<div class="ipbox">lampsworld.aternos.me</div>
-<button class="btn" onclick="navigator.clipboard.writeText('lampsworld.aternos.me')">СКОПІЮВАТИ IP</button>
+Версія: <b>1.21.130</b><br>
+IP: <b>lampsworld.aternos.me</b><br>
+Порт: <b>58990</b>
 </div>
 </section>
 
-<section>
-<div class="card">
-<div class="title">ЧОМУ <span class="blue">ATERNOS?</span></div>
-<p style="line-height:1.6;color:#ddd;">
-Сервер працює на Aternos через відсутність бюджету.
-Це тимчасове рішення для розвитку спільноти.
-</p>
-</div>
-</section>
-
-<section>
-<div class="card">
-<div class="title">ПРАВИЛА</div>
-<p style="line-height:1.6;color:#ddd;">
-1. Заборонені чіти і дюпи.<br>
-2. Заборонено гриферство.<br>
-3. Заборонено токсичність.<br>
-4. Адмін завжди правий.
-</p>
-</div>
-</section>
-
+<!-- DISCORD -->
 <section>
 <div class="card">
 <div class="title">КОНТАКТИ</div>
@@ -129,20 +137,12 @@ a{text-decoration:none;}
 </div>
 </section>
 
-<footer>
-© 2026 LAMPSWORLD
-</footer>
-
 <script>
-const cards=document.querySelectorAll('.card');
-const obs=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting){
-e.target.classList.add('show');
-}
+document.querySelectorAll('.accordion').forEach(acc=>{
+acc.addEventListener('click',()=>{
+acc.classList.toggle('active');
 });
-},{threshold:0.2});
-cards.forEach(c=>obs.observe(c));
+});
 </script>
 
 </body>
